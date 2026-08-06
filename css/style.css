@@ -1,0 +1,277 @@
+/* BOOK1 — 스포츠의학 단권화 웹사이트, 밝은 테마 */
+
+:root {
+  --bg: #ffffff;
+  --bg-sidebar: #f7f8fb;
+  --bg-hover: #eef2ff;
+  --text: #1f2430;
+  --text-dim: #5b6472;
+  --border: #e5e8ee;
+  --accent: #2563eb;
+  --accent-dark: #1d4ed8;
+  --accent-soft: #eef2ff;
+  --table-head: #f0f4ff;
+  --code-bg: #f3f4f7;
+  --sidebar-w: 300px;
+  --radius: 10px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    'Malgun Gothic', 'Apple SD Gothic Neo', Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- layout ---------- */
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: var(--sidebar-w);
+  flex-shrink: 0;
+  background: var(--bg-sidebar);
+  border-right: 1px solid var(--border);
+  padding: 22px 16px 60px;
+  overflow-y: auto;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+.sidebar .brand {
+  display: block;
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: var(--text);
+  text-decoration: none;
+  padding: 4px 10px 16px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 12px;
+}
+.sidebar .brand span { display:block; font-weight:500; font-size:.78rem; color: var(--text-dim); margin-top:4px;}
+
+.sidebar nav details {
+  margin-bottom: 2px;
+  border-radius: 8px;
+}
+.sidebar nav summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 9px 10px;
+  border-radius: 8px;
+  font-size: .93rem;
+  font-weight: 600;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.sidebar nav summary::-webkit-details-marker { display: none; }
+.sidebar nav summary::before {
+  content: "›";
+  display: inline-block;
+  transition: transform .15s ease;
+  color: var(--text-dim);
+  font-weight: 700;
+}
+.sidebar nav details[open] > summary::before { transform: rotate(90deg); }
+.sidebar nav summary:hover { background: var(--bg-hover); }
+
+.sidebar nav .part-link {
+  color: var(--text);
+  text-decoration: none;
+  flex: 1;
+}
+.sidebar nav details.current > summary,
+.sidebar nav details.current > summary .part-link {
+  color: var(--accent-dark);
+  background: var(--accent-soft);
+}
+
+.sidebar nav .sublist {
+  list-style: none;
+  margin: 2px 0 8px 22px;
+  padding: 0;
+  border-left: 2px solid var(--border);
+}
+.sidebar nav .sublist li { margin: 0; }
+.sidebar nav .sublist a {
+  display: block;
+  padding: 6px 10px;
+  margin-left: -2px;
+  border-left: 2px solid transparent;
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: .85rem;
+  line-height: 1.4;
+}
+.sidebar nav .sublist a:hover {
+  color: var(--accent-dark);
+  background: var(--bg-hover);
+  border-radius: 0 6px 6px 0;
+}
+.sidebar nav .sublist a.active {
+  color: var(--accent-dark);
+  font-weight: 700;
+  border-left-color: var(--accent);
+  background: var(--accent-soft);
+  border-radius: 0 6px 6px 0;
+}
+
+main {
+  flex: 1;
+  min-width: 0;
+  padding: 48px 56px 120px;
+  max-width: 900px;
+}
+
+.top-back {
+  display: inline-block;
+  font-size: .85rem;
+  color: var(--text-dim);
+  text-decoration: none;
+  margin-bottom: 18px;
+}
+.top-back:hover { color: var(--accent); }
+
+/* ---------- typography ---------- */
+main h1 {
+  font-size: 1.9rem;
+  font-weight: 800;
+  line-height: 1.35;
+  margin: 0 0 28px;
+  padding-bottom: 16px;
+  border-bottom: 3px solid var(--accent);
+}
+main h2 {
+  font-size: 1.32rem;
+  font-weight: 800;
+  margin: 46px 0 16px;
+  padding: 8px 0 8px 14px;
+  border-left: 5px solid var(--accent);
+  background: var(--accent-soft);
+  border-radius: 0 8px 8px 0;
+  scroll-margin-top: 20px;
+}
+main h1 { scroll-margin-top: 20px; }
+main p, main ul, main ol { margin: 12px 0; }
+main ul, main ol { padding-left: 26px; }
+main li { margin: 5px 0; }
+main li > ul, main li > ol { margin: 6px 0; }
+main strong { color: var(--accent-dark); font-weight: 700; }
+main a { color: var(--accent); text-decoration: underline; text-decoration-color: #c7d5fb; text-underline-offset: 2px; }
+main a:hover { color: var(--accent-dark); }
+
+/* ---------- tables ---------- */
+.table-wrap { overflow-x: auto; margin: 18px 0; border: 1px solid var(--border); border-radius: var(--radius); }
+main table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: .92rem;
+}
+main table th, main table td {
+  border: 1px solid var(--border);
+  padding: 10px 14px;
+  text-align: left;
+  vertical-align: top;
+}
+main table th {
+  background: var(--table-head);
+  font-weight: 700;
+  white-space: nowrap;
+}
+main table tr:nth-child(even) td { background: #fafbfd; }
+
+.formula {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  font-family: 'Cambria Math', Cambria, 'Times New Roman', serif;
+  font-size: 1.05rem;
+  margin: 16px 0;
+}
+
+/* ---------- homepage ---------- */
+.hero {
+  padding: 8px 0 30px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 34px;
+}
+.hero h1 {
+  border: none;
+  padding: 0;
+  margin: 0 0 14px;
+  font-size: 2.1rem;
+}
+.hero p { color: var(--text-dim); font-size: 1rem; max-width: 720px; }
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 18px;
+}
+.card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  text-decoration: none;
+  color: var(--text);
+  background: #fff;
+  transition: box-shadow .15s ease, transform .15s ease, border-color .15s ease;
+  display: block;
+}
+.card:hover {
+  box-shadow: 0 8px 24px rgba(37,99,235,.12);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+.card .num { font-size: .78rem; font-weight: 800; color: var(--accent); letter-spacing: .04em; }
+.card .title { font-size: 1.04rem; font-weight: 700; margin: 4px 0 8px; line-height: 1.4; }
+.card .subs { font-size: .8rem; color: var(--text-dim); line-height: 1.6; }
+
+/* ---------- mobile ---------- */
+.menu-btn {
+  display: none;
+  position: fixed;
+  top: 14px; left: 14px;
+  z-index: 50;
+  width: 42px; height: 42px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0,0,0,.08);
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .menu-btn { display: block; }
+  .sidebar {
+    position: fixed;
+    left: 0; top: 0;
+    transform: translateX(-105%);
+    transition: transform .2s ease;
+    z-index: 40;
+    box-shadow: 0 0 30px rgba(0,0,0,.15);
+  }
+  .sidebar.open { transform: translateX(0); }
+  main { padding: 76px 22px 90px; max-width: 100%; }
+  .overlay {
+    display: none;
+    position: fixed; inset: 0;
+    background: rgba(15,23,42,.35);
+    z-index: 35;
+  }
+  .overlay.show { display: block; }
