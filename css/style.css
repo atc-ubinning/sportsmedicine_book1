@@ -2,15 +2,15 @@
 
 :root {
   --bg: #ffffff;
-  --bg-sidebar: #f7f8fb;
-  --bg-hover: #eef2ff;
+  --bg-sidebar: #f6f7fa;
+  --bg-hover: #eaeff7;
   --text: #1f2430;
   --text-dim: #5b6472;
-  --border: #e5e8ee;
-  --accent: #2563eb;
-  --accent-dark: #1d4ed8;
-  --accent-soft: #eef2ff;
-  --table-head: #f0f4ff;
+  --border: #e3e7ee;
+  --accent: #1e3a6e;
+  --accent-dark: #142850;
+  --accent-soft: #eaeef6;
+  --table-head: #eaeef6;
   --code-bg: #f3f4f7;
   --sidebar-w: 300px;
   --radius: 10px;
@@ -272,14 +272,14 @@ main table tr:nth-child(even) td { background: #fafbfd; }
 .callout-tip, .callout-success { border-left-color: #059669; background: #ecfdf5; }
 .callout-tip .callout-title, .callout-success .callout-title { color: #047857; }
 
-.callout-info, .callout-note, .callout-abstract { border-left-color: #2563eb; background: #eff6ff; }
-.callout-info .callout-title, .callout-note .callout-title, .callout-abstract .callout-title { color: #1d4ed8; }
+.callout-info, .callout-note, .callout-abstract { border-left-color: #1e3a6e; background: #eef1f8; }
+.callout-info .callout-title, .callout-note .callout-title, .callout-abstract .callout-title { color: #142850; }
 
-.callout-quote { border-left-color: #7c3aed; background: #f5f3ff; font-style: italic; }
-.callout-quote .callout-title { color: #6d28d9; }
+.callout-quote { border-left-color: #1e3a6e; background: #eef1f8; font-style: italic; }
+.callout-quote .callout-title { color: #142850; }
 
-.callout-example, .callout-question { border-left-color: #9333ea; background: #faf5ff; }
-.callout-example .callout-title, .callout-question .callout-title { color: #7e22ce; }
+.callout-example, .callout-question { border-left-color: #2c5282; background: #eef4fa; }
+.callout-example .callout-title, .callout-question .callout-title { color: #1a3a5c; }
 
 .formula {
   background: var(--code-bg);
@@ -330,7 +330,7 @@ main table tr:nth-child(even) td { background: #fafbfd; }
   display: block;
 }
 .card:hover {
-  box-shadow: 0 8px 24px rgba(37,99,235,.12);
+  box-shadow: 0 8px 24px rgba(30,58,110,.14);
   border-color: var(--accent);
   transform: translateY(-2px);
 }
