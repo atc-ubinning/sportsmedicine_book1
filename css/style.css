@@ -217,6 +217,12 @@ main h2 {
   scroll-margin-top: 20px;
 }
 main h1 { scroll-margin-top: 20px; }
+main h3 {
+  font-size: 1.05rem;
+  font-weight: 800;
+  margin: 26px 0 10px;
+  color: var(--accent-dark);
+}
 main p, main ul, main ol { margin: 12px 0; }
 main ul, main ol { padding-left: 26px; }
 main li { margin: 5px 0; }
@@ -244,6 +250,36 @@ main table th {
   white-space: nowrap;
 }
 main table tr:nth-child(even) td { background: #fafbfd; }
+
+.callout {
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  background: var(--accent-soft);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 12px 16px;
+  margin: 16px 0;
+}
+.callout-title { font-weight: 800; margin-bottom: 4px; color: var(--accent-dark); }
+.callout-body { font-size: .95rem; color: var(--text); }
+.callout-body strong { color: inherit; }
+
+.callout-important, .callout-danger { border-left-color: #dc2626; background: #fef2f2; }
+.callout-important .callout-title, .callout-danger .callout-title { color: #b91c1c; }
+
+.callout-warning { border-left-color: #d97706; background: #fffbeb; }
+.callout-warning .callout-title { color: #b45309; }
+
+.callout-tip, .callout-success { border-left-color: #059669; background: #ecfdf5; }
+.callout-tip .callout-title, .callout-success .callout-title { color: #047857; }
+
+.callout-info, .callout-note, .callout-abstract { border-left-color: #2563eb; background: #eff6ff; }
+.callout-info .callout-title, .callout-note .callout-title, .callout-abstract .callout-title { color: #1d4ed8; }
+
+.callout-quote { border-left-color: #7c3aed; background: #f5f3ff; font-style: italic; }
+.callout-quote .callout-title { color: #6d28d9; }
+
+.callout-example, .callout-question { border-left-color: #9333ea; background: #faf5ff; }
+.callout-example .callout-title, .callout-question .callout-title { color: #7e22ce; }
 
 .formula {
   background: var(--code-bg);
