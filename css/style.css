@@ -296,6 +296,7 @@ main table tr:nth-child(even) td { background: #fafbfd; }
   padding: 8px 0 30px;
   border-bottom: 1px solid var(--border);
   margin-bottom: 34px;
+  text-align: center;
 }
 .hero h1 {
   border: none;
@@ -303,7 +304,15 @@ main table tr:nth-child(even) td { background: #fafbfd; }
   margin: 0 0 14px;
   font-size: 2.1rem;
 }
-.hero p { color: var(--text-dim); font-size: 1rem; max-width: 720px; }
+.hero h1 .hero-by {
+  display: inline-block;
+  font-size: 0.42em;
+  font-weight: 600;
+  color: var(--text-dim);
+  margin-left: 4px;
+  vertical-align: middle;
+}
+.hero p { color: var(--text-dim); font-size: 1rem; max-width: 720px; margin-left: auto; margin-right: auto; }
 
 .card-grid {
   display: grid;
