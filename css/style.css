@@ -109,6 +109,20 @@ body {
 .search-item-snippet mark { background: #fde68a; color: inherit; border-radius: 2px; padding: 0 1px; }
 .search-empty { padding: 12px; font-size: .85rem; color: var(--text-dim); }
 
+.home-search {
+  max-width: 560px;
+  margin: 28px auto 0;
+  text-align: left;
+}
+.home-search input {
+  padding: 16px 20px;
+  font-size: 1.05rem;
+  border-radius: 14px;
+  text-align: left;
+  box-shadow: 0 4px 18px rgba(30,58,110,.08);
+}
+.home-search .search-results { left: 0; right: 0; }
+
 @media (max-width: 900px) {
   .search-results { right: 0; }
 }
