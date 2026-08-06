@@ -61,6 +61,58 @@ body {
 }
 .sidebar .brand span { display:block; font-weight:500; font-size:.78rem; color: var(--text-dim); margin-top:4px;}
 
+.search-box {
+  position: relative;
+  margin: 0 4px 16px;
+}
+.search-box input {
+  width: 100%;
+  padding: 9px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: .88rem;
+  font-family: inherit;
+  background: #fff;
+  color: var(--text);
+  outline: none;
+}
+.search-box input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+.search-results {
+  display: none;
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: -260px;
+  max-height: 70vh;
+  overflow-y: auto;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: 0 12px 32px rgba(15,23,42,.16);
+  z-index: 60;
+  padding: 6px;
+}
+.search-results.show { display: block; }
+.search-item {
+  display: block;
+  padding: 9px 12px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--text);
+}
+.search-item:hover { background: var(--bg-hover); }
+.search-item-title { font-weight: 700; font-size: .88rem; color: var(--accent-dark); }
+.search-item-snippet { font-size: .8rem; color: var(--text-dim); margin-top: 2px; line-height: 1.5; }
+.search-item-snippet mark { background: #fde68a; color: inherit; border-radius: 2px; padding: 0 1px; }
+.search-empty { padding: 12px; font-size: .85rem; color: var(--text-dim); }
+
+@media (max-width: 900px) {
+  .search-results { right: 0; }
+}
+
 .sidebar nav details {
   margin-bottom: 2px;
   border-radius: 8px;
@@ -275,3 +327,4 @@ main table tr:nth-child(even) td { background: #fafbfd; }
     z-index: 35;
   }
   .overlay.show { display: block; }
+}
