@@ -262,6 +262,30 @@ main {
 .top-back svg { width: 20px; height: 20px; }
 .top-back:hover { color: var(--accent); background: var(--bg-hover); }
 
+.float-home {
+  position: fixed;
+  left: 22px;
+  bottom: 22px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 8px 20px rgba(20,40,80,.3);
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition: opacity .2s ease, transform .2s ease, background .15s ease;
+  z-index: 45;
+}
+.float-home.show { opacity: 1; transform: translateY(0); pointer-events: auto; }
+.float-home:hover { background: var(--accent-dark); }
+.float-home svg { width: 22px; height: 22px; }
+
 /* ---------- typography ---------- */
 main h1 {
   font-size: 1.9rem;

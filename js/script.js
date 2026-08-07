@@ -24,6 +24,28 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
+// floating home button: shows once the top-left home icon scrolls out of view
+document.addEventListener('DOMContentLoaded', function () {
+  var topBack = document.querySelector('.top-back');
+  var floatHome = document.querySelector('.float-home');
+  if (!topBack || !floatHome) return;
+
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        floatHome.classList.toggle('show', !entry.isIntersecting);
+      });
+    }, { threshold: 0 });
+    observer.observe(topBack);
+  } else {
+    // fallback for very old browsers without IntersectionObserver
+    window.addEventListener('scroll', function () {
+      var rect = topBack.getBoundingClientRect();
+      floatHome.classList.toggle('show', rect.bottom < 0);
+    });
+  }
+});
+
 // persistent keyword highlight when arriving from a search result (?hl=keyword)
 document.addEventListener('DOMContentLoaded', function () {
   var main = document.querySelector('main');
