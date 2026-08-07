@@ -32,7 +32,14 @@
 </nav>
 </aside>
 <main>
-<a class="top-back" href="index.html" title="전체 목차로" aria-label="홈으로"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7"/><path d="M4 10v10a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V10"/><path d="M9 21v-9h6v9"/></svg></a>
+<div class="page-top-bar">
+  <a class="top-back" href="index.html" title="전체 목차로" aria-label="홈으로"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7"/><path d="M4 10v10a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V10"/><path d="M9 21v-9h6v9"/></svg></a>
+  <div class="page-search-box">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <input id="page-search-input" type="text" placeholder="이 페이지에서 검색" autocomplete="off">
+    <span id="page-search-count" class="page-search-count"></span>
+  </div>
+</div>
 <h1 id="s1">XV. AT·스포츠의학 개론 (Intro to Sports Medicine &amp; AT)</h1>
 <h2 id="s2">1. Athletic Trainer(AT)란</h2>
 <p>스포츠현장 부상예방·응급처치·재활담당, 종목·포지션특화단계적프로그램으로빠른복귀지원. 일반동호인도수술후복귀시 선수와동일한단계필요</p>
@@ -161,9 +168,17 @@
 </tr>
 </tbody>
 </table></div>
+<div class="float-page-search" id="float-page-search">
+  <div class="float-page-search-panel" id="float-page-search-panel">
+    <input id="page-search-input-float" type="text" placeholder="이 페이지에서 검색" autocomplete="off">
+    <span id="page-search-count-float" class="page-search-count"></span>
+  </div>
+  <button class="float-page-search-btn" id="float-page-search-btn" type="button" aria-label="이 페이지에서 검색" title="이 페이지에서 검색"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+</div>
 </main>
 </div>
 <a class="float-home" href="index.html" title="홈으로" aria-label="홈으로"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7"/><path d="M4 10v10a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V10"/><path d="M9 21v-9h6v9"/></svg></a>
 <script src="js/script.js"></script>
+<script src="js/page-search.js"></script>
 </body>
 </html>

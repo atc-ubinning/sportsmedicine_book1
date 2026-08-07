@@ -32,7 +32,14 @@
 </nav>
 </aside>
 <main>
-<a class="top-back" href="index.html" title="전체 목차로" aria-label="홈으로"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7"/><path d="M4 10v10a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V10"/><path d="M9 21v-9h6v9"/></svg></a>
+<div class="page-top-bar">
+  <a class="top-back" href="index.html" title="전체 목차로" aria-label="홈으로"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7"/><path d="M4 10v10a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V10"/><path d="M9 21v-9h6v9"/></svg></a>
+  <div class="page-search-box">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <input id="page-search-input" type="text" placeholder="이 페이지에서 검색" autocomplete="off">
+    <span id="page-search-count" class="page-search-count"></span>
+  </div>
+</div>
 <h1 id="s1">XII. 응급처치·현장관리학 (Emergency Care &amp; Field Management)</h1>
 <h2 id="s2">1. Emergency Action Plan(EAP)</h2>
 <p>경기중항상준비, 전구성원포함, 융통성+반복연습.</p>
@@ -126,9 +133,17 @@
 <p>→ <a href="05-regional-injuries.html">V장</a> 참조 (SCAT6/SCOAT6/11R, CWI/Taco method/WBGT)</p>
 <h2 id="s8">7. 척추 손상 응급처치 원칙</h2>
 <div class="callout callout-danger"><div class="callout-title">🚨 위험 — 경추손상의심시 헬멧등장비 제거하지않고 처치, jaw thrust로기도확보, spine board필수사용</div></div>
+<div class="float-page-search" id="float-page-search">
+  <div class="float-page-search-panel" id="float-page-search-panel">
+    <input id="page-search-input-float" type="text" placeholder="이 페이지에서 검색" autocomplete="off">
+    <span id="page-search-count-float" class="page-search-count"></span>
+  </div>
+  <button class="float-page-search-btn" id="float-page-search-btn" type="button" aria-label="이 페이지에서 검색" title="이 페이지에서 검색"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+</div>
 </main>
 </div>
 <a class="float-home" href="index.html" title="홈으로" aria-label="홈으로"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7"/><path d="M4 10v10a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V10"/><path d="M9 21v-9h6v9"/></svg></a>
 <script src="js/script.js"></script>
+<script src="js/page-search.js"></script>
 </body>
 </html>

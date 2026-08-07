@@ -32,7 +32,14 @@
 </nav>
 </aside>
 <main>
-<a class="top-back" href="index.html" title="전체 목차로" aria-label="홈으로"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7"/><path d="M4 10v10a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V10"/><path d="M9 21v-9h6v9"/></svg></a>
+<div class="page-top-bar">
+  <a class="top-back" href="index.html" title="전체 목차로" aria-label="홈으로"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7"/><path d="M4 10v10a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V10"/><path d="M9 21v-9h6v9"/></svg></a>
+  <div class="page-search-box">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <input id="page-search-input" type="text" placeholder="이 페이지에서 검색" autocomplete="off">
+    <span id="page-search-count" class="page-search-count"></span>
+  </div>
+</div>
 <h1 id="s1">IX. 재활운동학 (Rehabilitation &amp; Therapeutic Exercise)</h1>
 <h2 id="s2">1. 재활 프로그램의 단계 (치유3단계 기반, 통합)</h2>
 <div class="table-wrap"><table>
@@ -382,9 +389,17 @@
 <li>신체제어·속도·정밀성·효율성개발→집중력↑→자동화(운동학습최종단계)</li>
 <li>테스트: 505 agility test, T-test / 모니터링: 방향전환질, 지면접촉시간, 탈출·진입속도, 의사결정시간</li>
 </ul>
+<div class="float-page-search" id="float-page-search">
+  <div class="float-page-search-panel" id="float-page-search-panel">
+    <input id="page-search-input-float" type="text" placeholder="이 페이지에서 검색" autocomplete="off">
+    <span id="page-search-count-float" class="page-search-count"></span>
+  </div>
+  <button class="float-page-search-btn" id="float-page-search-btn" type="button" aria-label="이 페이지에서 검색" title="이 페이지에서 검색"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></button>
+</div>
 </main>
 </div>
 <a class="float-home" href="index.html" title="홈으로" aria-label="홈으로"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7"/><path d="M4 10v10a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V10"/><path d="M9 21v-9h6v9"/></svg></a>
 <script src="js/script.js"></script>
+<script src="js/page-search.js"></script>
 </body>
 </html>
