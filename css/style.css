@@ -507,7 +507,7 @@ main table tr:nth-child(even) td { background: #fafbfd; }
   margin-bottom: 34px;
   text-align: center;
 }
-.hero-mark { width: 48px; height: 48px; margin: 0 auto 14px; display: block; }
+.hero-mark { width: 64px; height: 64px; margin: 0 auto 14px; display: block; }
 .hero h1 {
   border: none;
   padding: 0;
