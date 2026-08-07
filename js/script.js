@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var btn = document.querySelector('.menu-btn');
   var sidebar = document.querySelector('.sidebar');
   var overlay = document.querySelector('.overlay');
+  var layout = document.querySelector('.layout');
   if (!btn || !sidebar) return;
 
   function close() {
@@ -9,8 +10,14 @@ document.addEventListener('DOMContentLoaded', function () {
     if (overlay) overlay.classList.remove('show');
   }
   function toggle() {
-    sidebar.classList.toggle('open');
-    if (overlay) overlay.classList.toggle('show');
+    if (window.innerWidth <= 900) {
+      // mobile: slide-in drawer
+      sidebar.classList.toggle('open');
+      if (overlay) overlay.classList.toggle('show');
+    } else if (layout) {
+      // desktop: collapse the sidebar for more reading room
+      layout.classList.toggle('sidebar-collapsed');
+    }
   }
 
   btn.addEventListener('click', toggle);
