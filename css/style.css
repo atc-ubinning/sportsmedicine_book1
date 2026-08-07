@@ -275,27 +275,28 @@ main {
 .page-search-box {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 7px 12px;
+  border-radius: 8px;
+  padding: 5px 9px;
   background: #fff;
-  flex: 1;
-  max-width: 320px;
-  min-width: 180px;
+  flex: 0 0 auto;
+  width: 168px;
+  margin-left: auto;
 }
-.page-search-box svg { width: 16px; height: 16px; color: var(--text-dim); flex-shrink: 0; }
+.page-search-box svg { width: 13px; height: 13px; color: var(--text-dim); flex-shrink: 0; }
 .page-search-box input {
   border: none;
   outline: none;
   flex: 1;
   min-width: 0;
-  font-size: .88rem;
+  width: 0;
+  font-size: .78rem;
   font-family: inherit;
   color: var(--text);
   background: transparent;
 }
-.page-search-count { font-size: .74rem; color: var(--text-dim); white-space: nowrap; }
+.page-search-count { font-size: .68rem; color: var(--text-dim); white-space: nowrap; }
 
 mark.page-hl { background: #fde68a; color: inherit; border-radius: 2px; padding: 0 1px; }
 mark.page-hl-current { background: #f6ad3c; box-shadow: 0 0 0 2px #f6ad3c; }
