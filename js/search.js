@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     results.innerHTML = items.map(function (item) {
       return '<a class="search-item" href="' + item.page + '#' + item.anchor + '">' +
+        '<div class="search-item-path">📁 ' + esc(item.part) + '</div>' +
         '<div class="search-item-title">' + esc(item.title) + '</div>' +
         '<div class="search-item-snippet">' + item.snippet + '</div>' +
         '</a>';
@@ -52,6 +53,7 @@ document.addEventListener('DOMContentLoaded', function () {
           page: item.page,
           anchor: item.anchor,
           title: item.title,
+          part: item.part,
           score: (titleHit !== -1 ? 0 : 1),
           snippet: snippetAround(titleHit !== -1 ? item.title : item.text, q)
         };

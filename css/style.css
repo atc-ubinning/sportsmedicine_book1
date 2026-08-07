@@ -104,6 +104,7 @@ body {
   color: var(--text);
 }
 .search-item:hover { background: var(--bg-hover); }
+.search-item-path { font-size: .72rem; color: var(--text-dim); font-weight: 600; margin-bottom: 2px; }
 .search-item-title { font-weight: 700; font-size: .88rem; color: var(--accent-dark); }
 .search-item-snippet { font-size: .8rem; color: var(--text-dim); margin-top: 2px; line-height: 1.5; }
 .search-item-snippet mark { background: #fde68a; color: inherit; border-radius: 2px; padding: 0 1px; }
@@ -166,10 +167,10 @@ body {
   border-color: var(--accent);
   box-shadow: 0 4px 16px rgba(30,58,110,.1);
 }
+.search-page-item-path { font-size: .76rem; color: var(--accent); font-weight: 700; margin-bottom: 4px; }
 .search-page-item-title { font-weight: 800; font-size: 1rem; color: var(--accent-dark); }
 .search-page-item-snippet { font-size: .88rem; color: var(--text-dim); margin-top: 4px; line-height: 1.6; }
 .search-page-item-snippet mark { background: #fde68a; color: inherit; border-radius: 2px; padding: 0 1px; }
-.search-page-item-page { font-size: .74rem; color: var(--text-dim); margin-top: 8px; opacity: .7; }
 
 .sidebar nav details {
   margin-bottom: 2px;

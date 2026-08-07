@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
           page: item.page,
           anchor: item.anchor,
           title: item.title,
+          part: item.part,
           score: (titleHit !== -1 ? 0 : 1),
           snippet: snippetAround(titleHit !== -1 ? item.title : item.text, q)
         };
@@ -52,9 +53,9 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     resultsEl.innerHTML = matches.map(function (item) {
       return '<a class="search-page-item" href="' + item.page + '#' + item.anchor + '">' +
+        '<div class="search-page-item-path">📁 ' + esc(item.part) + '</div>' +
         '<div class="search-page-item-title">' + esc(item.title) + '</div>' +
         '<div class="search-page-item-snippet">' + item.snippet + '</div>' +
-        '<div class="search-page-item-page">' + item.page.replace('.html', '') + '</div>' +
         '</a>';
     }).join('');
   }
