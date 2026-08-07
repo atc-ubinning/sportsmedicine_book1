@@ -290,6 +290,15 @@ main strong { color: var(--accent-dark); font-weight: 700; }
 main a { color: var(--accent); text-decoration: underline; text-decoration-color: #c7d5fb; text-underline-offset: 2px; }
 main a:hover { color: var(--accent-dark); }
 
+.hl-target {
+  background: #fde68a;
+  color: inherit;
+  border-radius: 3px;
+  padding: 0 3px;
+  box-shadow: 0 0 0 2px #fde68a;
+  scroll-margin-top: 90px;
+}
+
 /* ---------- tables ---------- */
 .table-wrap { overflow-x: auto; margin: 18px 0; border: 1px solid var(--border); border-radius: var(--radius); }
 main table {

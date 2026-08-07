@@ -24,14 +24,15 @@ document.addEventListener('DOMContentLoaded', function () {
     );
   }
 
-  function render(items) {
+  function render(items, q) {
     if (!items.length) {
       results.innerHTML = '<div class="search-empty">검색 결과가 없어요</div>';
       results.classList.add('show');
       return;
     }
+    var hl = q ? ('?hl=' + encodeURIComponent(q)) : '';
     results.innerHTML = items.map(function (item) {
-      return '<a class="search-item" href="' + item.page + '#' + item.anchor + '">' +
+      return '<a class="search-item" href="' + item.page + hl + '#' + item.anchor + '">' +
         '<div class="search-item-path">' + esc(item.part) + '</div>' +
         '<div class="search-item-title">' + esc(item.title) + '</div>' +
         '<div class="search-item-snippet">' + item.snippet + '</div>' +
@@ -61,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
       .filter(Boolean)
       .sort(function (a, b) { return a.score - b.score; })
       .slice(0, 15);
-    render(matches);
+    render(matches, q);
   });
 
   input.addEventListener('keydown', function (e) {

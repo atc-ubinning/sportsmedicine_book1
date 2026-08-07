@@ -51,8 +51,9 @@ document.addEventListener('DOMContentLoaded', function () {
       resultsEl.innerHTML = '<div class="search-empty">일치하는 내용이 없어요. 다른 검색어로 시도해보세요.</div>';
       return;
     }
+    var hl = '?hl=' + encodeURIComponent(q);
     resultsEl.innerHTML = matches.map(function (item) {
-      return '<a class="search-page-item" href="' + item.page + '#' + item.anchor + '">' +
+      return '<a class="search-page-item" href="' + item.page + hl + '#' + item.anchor + '">' +
         '<div class="search-page-item-path">' + esc(item.part) + '</div>' +
         '<div class="search-page-item-title">' + esc(item.title) + '</div>' +
         '<div class="search-page-item-snippet">' + item.snippet + '</div>' +

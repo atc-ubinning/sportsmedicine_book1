@@ -23,3 +23,47 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 });
+
+// persistent keyword highlight when arriving from a search result (?hl=keyword)
+document.addEventListener('DOMContentLoaded', function () {
+  var main = document.querySelector('main');
+  if (!main) return;
+  var hl = new URLSearchParams(window.location.search).get('hl');
+  if (!hl) return;
+
+  var re = new RegExp('(' + hl.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
+    acceptNode: function (node) {
+      var p = node.parentNode;
+      if (!node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+      if (p && (p.tagName === 'SCRIPT' || p.tagName === 'STYLE' || p.tagName === 'MARK')) return NodeFilter.FILTER_REJECT;
+      return re.test(node.nodeValue) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+    }
+  });
+  var targets = [];
+  var n;
+  while ((n = walker.nextNode())) targets.push(n);
+
+  targets.forEach(function (node) {
+    var text = node.nodeValue;
+    var frag = document.createDocumentFragment();
+    var lastIndex = 0;
+    text.replace(re, function (match, p1, offset) {
+      frag.appendChild(document.createTextNode(text.slice(lastIndex, offset)));
+      var mark = document.createElement('mark');
+      mark.className = 'hl-target';
+      mark.textContent = match;
+      frag.appendChild(mark);
+      lastIndex = offset + match.length;
+    });
+    frag.appendChild(document.createTextNode(text.slice(lastIndex)));
+    node.parentNode.replaceChild(frag, node);
+  });
+
+  var first = main.querySelector('.hl-target');
+  if (first) {
+    setTimeout(function () {
+      first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 100);
+  }
+});
