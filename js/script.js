@@ -31,13 +31,16 @@ document.addEventListener('DOMContentLoaded', function () {
   var hl = new URLSearchParams(window.location.search).get('hl');
   if (!hl) return;
 
-  var re = new RegExp('(' + hl.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'gi');
+  var pattern = hl.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  var testRe = new RegExp(pattern, 'i');   // no 'g' flag: safe to call .test() repeatedly
+  var replaceRe = new RegExp(pattern, 'gi'); // used only inside String.replace, which resets per call
+
   var walker = document.createTreeWalker(main, NodeFilter.SHOW_TEXT, {
     acceptNode: function (node) {
       var p = node.parentNode;
       if (!node.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
       if (p && (p.tagName === 'SCRIPT' || p.tagName === 'STYLE' || p.tagName === 'MARK')) return NodeFilter.FILTER_REJECT;
-      return re.test(node.nodeValue) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+      return testRe.test(node.nodeValue) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
     }
   });
   var targets = [];
@@ -48,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var text = node.nodeValue;
     var frag = document.createDocumentFragment();
     var lastIndex = 0;
-    text.replace(re, function (match, p1, offset) {
+    text.replace(replaceRe, function (match, p1, offset) {
       frag.appendChild(document.createTextNode(text.slice(lastIndex, offset)));
       var mark = document.createElement('mark');
       mark.className = 'hl-target';
@@ -60,10 +63,17 @@ document.addEventListener('DOMContentLoaded', function () {
     node.parentNode.replaceChild(frag, node);
   });
 
-  var first = main.querySelector('.hl-target');
-  if (first) {
-    setTimeout(function () {
-      first.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }, 100);
+  // scroll after the browser's own #anchor jump has settled, so it doesn't
+  // get overridden and yank the view back up to the section heading
+  function scrollToFirstHighlight() {
+    var first = main.querySelector('.hl-target');
+    if (first) first.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+  window.addEventListener('load', function () {
+    setTimeout(scrollToFirstHighlight, 150);
+  });
+  // fallback in case 'load' already fired before this ran
+  if (document.readyState === 'complete') {
+    setTimeout(scrollToFirstHighlight, 150);
   }
 });
