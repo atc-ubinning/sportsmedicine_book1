@@ -2,22 +2,18 @@ document.addEventListener('DOMContentLoaded', function () {
   var btn = document.querySelector('.menu-btn');
   var sidebar = document.querySelector('.sidebar');
   var overlay = document.querySelector('.overlay');
-  var layout = document.querySelector('.layout');
   if (!btn || !sidebar) return;
 
+  // mobile starts with the sidebar drawer closed; desktop starts with it open
+  if (window.innerWidth <= 900) sidebar.classList.add('hidden');
+
   function close() {
-    sidebar.classList.remove('open');
+    sidebar.classList.add('hidden');
     if (overlay) overlay.classList.remove('show');
   }
   function toggle() {
-    if (window.innerWidth <= 900) {
-      // mobile: slide-in drawer
-      sidebar.classList.toggle('open');
-      if (overlay) overlay.classList.toggle('show');
-    } else if (layout) {
-      // desktop: collapse the sidebar for more reading room
-      layout.classList.toggle('sidebar-collapsed');
-    }
+    var nowHidden = sidebar.classList.toggle('hidden');
+    if (overlay) overlay.classList.toggle('show', !nowHidden && window.innerWidth <= 900);
   }
 
   btn.addEventListener('click', toggle);
