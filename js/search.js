@@ -64,6 +64,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
   input.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') { input.value = ''; clearResults(); input.blur(); }
+    if (e.key === 'Enter') {
+      var q = input.value.trim();
+      if (q) window.location.href = 'search.html?q=' + encodeURIComponent(q);
+    }
   });
 
   document.addEventListener('click', function (e) {
