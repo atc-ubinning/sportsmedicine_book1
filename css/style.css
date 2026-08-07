@@ -51,11 +51,12 @@ body {
 
 .sidebar .brand {
   display: block;
+  text-align: center;
   font-weight: 800;
   font-size: 1.15rem;
   color: var(--text);
   text-decoration: none;
-  padding: 4px 10px 16px;
+  padding: 44px 10px 16px;
   border-bottom: 1px solid var(--border);
   margin-bottom: 12px;
 }
