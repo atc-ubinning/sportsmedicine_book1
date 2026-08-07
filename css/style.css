@@ -267,9 +267,9 @@ main {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: 10px;
   margin-bottom: 18px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 .page-top-bar .top-back { margin-bottom: 0; flex-shrink: 0; }
 .page-search-box {
@@ -280,8 +280,8 @@ main {
   border-radius: 8px;
   padding: 5px 9px;
   background: #fff;
-  flex: 0 0 auto;
-  width: 168px;
+  flex: 0 1 168px;
+  min-width: 84px;
   margin-left: auto;
 }
 .page-search-box svg { width: 13px; height: 13px; color: var(--text-dim); flex-shrink: 0; }
